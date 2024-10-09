@@ -10,8 +10,8 @@
 		"start": "rasengan start"
 	},
 	"dependencies": {
-		"@rasenganjs/mdx": "file:../../rasenganjs/packages/mdx/release/rasenganjs-mdx-1.0.1.tgz",
-		"rasengan": "file:../../rasenganjs/packages/core/release/rasengan-1.0.0-beta.46.tgz",
+		"@rasenganjs/mdx": "1.0.2",
+		"rasengan": "1.0.0-beta.47",
 		"@rasenganjs/image": "^1.0.0",
 		"react": "^18.3.0",
 		"react-dom": "^18.3.0"
