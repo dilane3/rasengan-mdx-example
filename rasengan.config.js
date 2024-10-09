@@ -3,7 +3,11 @@ import mdx from "@rasenganjs/mdx";
 
 export default defineConfig(async () => {
 	return {
-		reactStrictMode: true,
+		server: {
+			production: {
+				hosting: "vercel",
+			},
+		},
 
 		vite: {
 			plugins: [mdx()],
