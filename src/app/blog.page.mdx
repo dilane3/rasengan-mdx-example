@@ -4,18 +4,63 @@ metadata:
   title: Test
 ---
 
-# Blog
+import AlertBox from "./Alert"
 
-**bonjour** frero
+# LayoutComponent
+
+`LayoutComponent` is a functional component that defines the structure of a layout component.
+
+## Example
 
 ```jsx
-const Blog = () => {
-  return <div>Blog</div>
+import { LayoutComponent, Outlet } from "rasengan";
+ 
+const AppLayout: LayoutComponent = () => {
+  return (
+    <div>
+      <header>
+        <h1>App Layout</h1>
+      </header>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
 }
+ 
+AppLayout.path = "/";
+ 
+export default AppLayout;
 ```
 
-## Titre 2
+The `LayoutComponent` function component requires a `path` property to define the route layout that will be considered as the base path of all pages that will use the layout.
 
-### Titre 3
+Inside the return, the `Outlet` component is used to render the child components of the layout.
 
-#### Titre 4
+<AlertBox>
+- `props`: The props that will be passed to the layout component.
+- `redirect`: The path to redirect the user.
+</AlertBox>
+
+## Properties and Methods
+
+The `LayoutComponent` function has the following properties and methods:
+
+### Properties 
+
+#### path
+
+- `path`: The path of the layout component. This is used to define the route layout that will be considered as the base path of all pages that will use the layout.
+
+### Methods
+
+- `loader()`: Similar to `getServerSideProps()` in Next.js, this method is used to make some operations on the server before the layout is rendered. It should return a promise with the result of the operations.
+
+The `loader()` method is optional. The returned promise has to follow the following structure:
+
+```jsx
+type LoaderResponse = {
+  props?: { [key: string]: any };
+  redirect?: string
+};
+```

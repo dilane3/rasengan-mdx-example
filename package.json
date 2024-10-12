@@ -11,8 +11,8 @@
 	},
 	"dependencies": {
 		"@rasenganjs/image": "^1.0.0",
-		"@rasenganjs/mdx": "1.0.2",
-		"rasengan": "1.0.0-beta.49",
+		"@rasenganjs/mdx": "file:../../rasenganjs/packages/mdx/release/rasenganjs-mdx-1.0.2.tgz",
+		"rasengan": "file:../../rasenganjs/packages/core/release/rasengan-1.0.0-beta.49.tgz",
 		"react": "^18.3.0",
 		"react-dom": "^18.3.0"
 	},

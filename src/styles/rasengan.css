@@ -1,68 +1,227 @@
-h1 {
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+	--bg: transparent;
+	--bg-light: #f5f5f5;
+	--bg-code: #1d2529;
+	--fg: #333;
+	--fg-light: #666;
+	--fg-dark: #000;
+	--fg-accent: #007bff;
+	--border: #eee;
+}
+
+.dark {
+	--bg: #212121;
+	--bg-light: #1d2529;
+	--bg-code: #1d2529;
+	--fg: #eee;
+	--fg-light: #ccc;
+	--fg-dark: #fff;
+	--fg-accent: #007bff;
+	--border: #2F2F2F;
+}
+
+.rasengan-markdown-body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+}
+
+/* Headings */
+
+.rasengan-markdown-body h1 {
 	font-size: 2.5em;
-	color: #333;
+	color: var(--fg);
 	font-weight: 700;
-	margin: 0.67em 0;
-}
-
-h2 {
-	font-size: 2em;
-	color: #333;
-	font-weight: 700;
-	margin: 0.67em 0;
-	border-bottom: 1px solid #eee;
-}
-
-h3 {
-	font-size: 1.5em;
-	color: #333;
-	font-weight: 700;
-	margin: 0.67em 0;
-	border-bottom: 1px solid #eee;
-}
-
-h4 {
-	font-size: 1.17em;
-	color: #333;
-	font-weight: 700;
-	margin: 0.67em 0;
-	border-bottom: 1px solid #eee;
-}
-
-h5 {
-	font-size: 1em;
-	color: #333;
-	font-weight: 700;
-	margin: 0.67em 0;
-}
-
-h6 {
-	font-size: 0.83em;
-	color: #333;
-	font-weight: 700;
-	margin: 0.67em 0;
-}
-
-h1::after,
-h2::after,
-h3::after,
-h4::after {
-  content: ' #';
-  color: #eee;
-  margin: 0.67em 0;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-h1:hover::after,
-h2:hover::after,
-h3:hover::after,
-h4:hover::after {
-  opacity: 1;
-}
-
-p {
-	font-size: 1em;
-	color: #333;
 	margin: 1em 0;
+}
+
+.rasengan-markdown-body h2 {
+	font-size: 2em;
+	color: var(--fg);
+	font-weight: 700;
+	margin: 1em 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.rasengan-markdown-body h3 {
+	font-size: 1.5em;
+	color: var(--fg);
+	font-weight: 700;
+	margin: 1em 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.rasengan-markdown-body h4 {
+	font-size: 1.17em;
+	color: var(--fg);
+	font-weight: 700;
+	margin: 0.67em 0;
+}
+
+.rasengan-markdown-body h5 {
+	font-size: 1em;
+	color: var(--fg);
+	font-weight: 700;
+	margin: 0.67em 0;
+}
+
+.rasengan-markdown-body h6 {
+	font-size: 0.83em;
+	color: var(--fg);
+	font-weight: 700;
+	margin: 0.67em 0;
+}
+
+.rasengan-markdown-body h2::after,
+.rasengan-markdown-body h3::after,
+.rasengan-markdown-body h4::after {
+	content: " #";
+	color: var(--border);
+	margin: 0.67em 0;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.rasengan-markdown-body h2:hover::after,
+.rasengan-markdown-body h3:hover::after,
+.rasengan-markdown-body h4:hover::after {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.rasengan-markdown-body p {
+	font-size: 1em;
+	color: var(--fg);
+	margin: 1em 0;
+}
+
+.rasengan-markdown-body a {
+	color: var(--fg-accent);
+	text-decoration: none;
+}
+
+.rasengan-markdown-body a:hover {
+	text-decoration: underline;
+}
+
+/* Code blocks */
+
+.rasengan-markdown-body span.simple-block {
+	font-size: 0.8em;
+	font-family: 'JetBrains Mono', monospace;
+	border-radius: 5px;
+	padding: 2px 3.6px;
+	margin: auto 0;
+	background-color: var(--bg-light);
+	border: 1px solid var(--border);
+	/* color: var(--fg); */
+}
+
+.rasengan-markdown-body pre.code-block {
+	position: relative;
+	color: var(--fg);
+	background-color: var(--bg-code);
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.rasengan-markdown-body pre.code-block > div {
+	display: block;
+	padding: 20px;
+	font-size: 14px;
+	overflow-x: auto;
+}
+
+.rasengan-markdown-body pre.code-block > div button {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	opacity: 0;
+	transition: all 0.2s;
+}
+
+.rasengan-markdown-body pre.code-block code {
+	font-family: 'JetBrains Mono', monospace;
+}
+
+.rasengan-markdown-body pre.code-block:hover > div button {
+	opacity: 0.7;
+}
+
+.rasengan-markdown-body pre.code-block:hover > div button:hover {
+	opacity: 1;
+}
+
+/* Tables */
+
+.rasengan-markdown-body table {
+	/* width: 100%; */
+	border-collapse: collapse;
+	background-color: var(--bg);
+	color: var(--fg);
+	margin: 0.67em 0;
+}
+
+.rasengan-markdown-body th {
+	background-color: var(--bg-light);
+	color: var(--fg);
+	font-weight: 700;
+}
+
+.rasengan-markdown-body th,
+.rasengan-markdown-body td {
+	padding: 10px 20px;
+	border: 1px solid var(--border);
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.rasengan-markdown-body tr:nth-child(even) {
+	background-color: var(--bg-light);
+}
+
+.rasengan-markdown-body tr:hover {
+	background-color: var(--bg-light);
+}
+
+.rasengan-markdown-body tr:nth-child(odd) {
+	background-color: var(--bg);
+}
+
+/* Lists */
+
+.rasengan-markdown-body ul,
+.rasengan-markdown-body ol {
+	margin: 0.67em 0;
+	color: var(--fg);
+	padding-left: 15px;
+}
+
+.rasengan-markdown-body ul {
+	list-style: disc;
+}
+
+.rasengan-markdown-body ul:has(li > input) {
+	list-style: none;
+}
+
+.rasengan-markdown-body ul li,
+.rasengan-markdown-body ol li {
+	margin: 0.67em 0;
+	color: var(--fg);
+}
+
+.rasengan-markdown-body ul li input,
+.rasengan-markdown-body ol li input {
+	margin-right: 0.3em;
+}
+
+.rasengan-markdown-body ul li input,
+.rasengan-markdown-body ol li input:checked {
+	background-color: var(--fg-accent);
+	color: var(--bg);
 }
