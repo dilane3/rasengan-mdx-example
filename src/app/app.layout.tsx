@@ -4,7 +4,7 @@ import { Outlet, LayoutComponent } from "rasengan";
 const AppLayout: LayoutComponent = () => {
   return (
 		<section className='dark bg-[#171717]'>
-			<div className='px-4 max-w-[1000px] mx-auto py-10'>
+			<div className='max-w-[1000px] mx-auto py-10 px-4 lg:px-[150px]'>
 				<Outlet />
 			</div>
 		</section>
